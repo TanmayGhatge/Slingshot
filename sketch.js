@@ -38,8 +38,14 @@ function setup(){
 
     bird = new Bird(100,100);
 
-    log6 = new Log(230,180,80, PI/2);
-    chain = new Chain(bird.body,log6.body);
+    //log6 = new Log(230,180,80, PI/2);
+    SlingShot1 = new SlingShot(bird.body, {x:200, y:100});
+
+    box6 = new Box(520,320,70,70);
+    box7 = new Box(520,250,70,70);
+    box8 = new Box(520,180,70,70)
+    pig4 = new Pig(570,320);
+    log6 = new Log(565,280,220,PI/7);
 }
 
 function draw(){
@@ -63,6 +69,20 @@ function draw(){
 
     bird.display();
     platform.display();
+    //log6.display();
+    SlingShot1.display();    
+
+    box6.display();
+    pig4.display();
     log6.display();
-    chain.display();    
+    box7.display();
+    box8.display();
+}
+
+function mouseDragged(){
+    Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY});
+}
+
+function mouseReleased(){
+    SlingShot1.fly();
 }
